@@ -252,7 +252,7 @@ under the License.
         <id>adobe-public</id>
 
         <activation>
-            <activeByDefault>false</activeByDefault>
+            <activeByDefault>true</activeByDefault>
         </activation>
 
         <properties>
