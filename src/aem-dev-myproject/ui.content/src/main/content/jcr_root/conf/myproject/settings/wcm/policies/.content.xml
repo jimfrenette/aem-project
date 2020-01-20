@@ -271,6 +271,9 @@
                 </title>
                 <experiencefragment jcr:primaryType="nt:unstructured">
                     <policy_header
+                        cq:styleDefaultClasses="cmp-experiencefragment--header"
+                        jcr:lastModified="{Date}2020-01-20T10:10:17.939-05:00"
+                        jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="myproject Experience Fragment - Header"
                         sling:resourceType="wcm/core/components/policy/policy">
@@ -278,7 +281,7 @@
                     </policy_header>
                     <policy_footer
                         cq:styleDefaultClasses="cmp-experiencefragment--footer"
-                        jcr:lastModified="{Date}2020-01-18T21:02:51.278-05:00"
+                        jcr:lastModified="{Date}2020-01-20T10:10:04.442-05:00"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="myproject Experience Fragment - Footer"
