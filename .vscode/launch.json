@@ -1,0 +1,19 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+
+    // To debug, start AEM using this command line:
+    // CQ_JVM_OPTS='-server -Xmx2048m -XX:MaxPermSize=256M -Djava.awt.headless=true -agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=n' ./start
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Debug (Attach)",
+            "projectName": "aem-dev-myproject",
+            "request": "attach",
+            "hostName": "localhost",
+            "port": 8000
+        }
+    ]
+}
