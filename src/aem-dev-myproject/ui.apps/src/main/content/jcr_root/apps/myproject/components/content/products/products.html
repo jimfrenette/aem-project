@@ -21,13 +21,29 @@ HelloWorldModel says:
 ${hello.message}
 </pre>*/-->
 
-<ul data-sly-use.data="data/products.js">
-    <sly data-sly-list="${data.products}">
-        <li data-sly-test="item.product_name">
-            <h3>${item.product_name}</h3>
-            <p data-sly-test="item.supplier">Supplier: ${item.supplier}</p>
-            <p data-sly-test="item.item.quantity">Quantity: ${item.quantity}</p>
-            <p data-sly-test="item.item.unit_cost">Unit Cost: ${item.unit_cost}</p>
-        </li>     
-    </sly>
-</ul>   
+<ul data-sly-use.data="data/products.js"
+    data-sly-list="${data.products}">
+    <li>${item.name} ${item.type}
+        <ul data-sly-test="${item.batters.batter}">
+            <li>Batters
+                <ul data-sly-list="${item.batters.batter}">
+                    <li>${item.type}</li>
+                </ul>
+            </li>
+        </ul>
+        <ul data-sly-test="${item.topping}">
+            <li>Toppings
+                <ul data-sly-list="${item.topping}">
+                    <li>${item.type}</li>
+                </ul>
+            </li>
+        </ul>
+        <ul data-sly-test="${item.fillings.filling}">
+            <li>Fillings
+                <ul data-sly-list="${item.fillings.filling}">
+                    <li>${item.name}</li>
+                </ul>        
+            </li>
+        </ul>
+    </li>
+</ul>
