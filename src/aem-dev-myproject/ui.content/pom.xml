@@ -21,19 +21,19 @@
     <!-- P A R E N T  P R O J E C T  D E S C R I P T I O N                      -->
     <!-- ====================================================================== -->
     <parent>
-        <groupId>com.adobe</groupId>
-        <artifactId>aem-dev-myproject</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <groupId>com.myproject</groupId>
+        <artifactId>myproject</artifactId>
+        <version>1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
     <!-- ====================================================================== -->
     <!-- P R O J E C T  D E S C R I P T I O N                                   -->
     <!-- ====================================================================== -->
-    <artifactId>aem-dev-myproject.ui.content</artifactId>
+    <artifactId>myproject.ui.content</artifactId>
     <packaging>content-package</packaging>
-    <name>myproject - UI content</name>
-    <description>UI content package for myproject</description>
+    <name>My Project - UI content</name>
+    <description>UI content package for My Project</description>
 
     <!-- ====================================================================== -->
     <!-- B U I L D   D E F I N I T I O N                                        -->
@@ -48,18 +48,18 @@
                 <artifactId>filevault-package-maven-plugin</artifactId>
                 <extensions>true</extensions>
                 <configuration>
-                    <group>com.adobe</group>
-                    <name>aem-dev-myproject.ui.content</name>
+                    <group>com.myproject</group>
+                    <name>myproject.ui.content</name>
                     <packageType>content</packageType>
                     <accessControlHandling>merge</accessControlHandling>
                     <properties>
-                        <cloudManagerTarget>none</cloudManagerTarget>>
+                        <cloudManagerTarget>none</cloudManagerTarget>
                     </properties>
                     <dependencies>
                         <dependency>
-                            <groupId>com.adobe</groupId>
-                            <artifactId>aem-dev-myproject.ui.apps</artifactId>
-                            <version>0.0.1-SNAPSHOT</version>
+                            <groupId>com.myproject</groupId>
+                            <artifactId>myproject.ui.apps</artifactId>
+                            <version>${project.version}</version>
                         </dependency>
                     </dependencies>
                 </configuration>
@@ -81,14 +81,14 @@
     <!-- ====================================================================== -->
     <dependencies>
         <dependency>
-            <groupId>com.adobe</groupId>
-            <artifactId>aem-dev-myproject.core</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <groupId>com.myproject</groupId>
+            <artifactId>myproject.core</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.adobe</groupId>
-            <artifactId>aem-dev-myproject.ui.apps</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <groupId>com.myproject</groupId>
+            <artifactId>myproject.ui.apps</artifactId>
+            <version>${project.version}</version>
             <type>zip</type>
         </dependency>
         <dependency>

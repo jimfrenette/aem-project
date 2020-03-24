@@ -22,18 +22,18 @@
     <!-- P A R E N T  P R O J E C T  D E S C R I P T I O N                      -->
     <!-- ====================================================================== -->
     <parent>
-        <groupId>com.adobe</groupId>
-        <artifactId>aem-dev-myproject</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <groupId>com.myproject</groupId>
+        <artifactId>myproject</artifactId>
+        <version>1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
     <!-- ====================================================================== -->
     <!-- P R O J E C T  D E S C R I P T I O N                                   -->
     <!-- ====================================================================== -->
-    <artifactId>aem-dev-myproject.ui.frontend</artifactId>
+    <artifactId>myproject.ui.frontend</artifactId>
     <packaging>pom</packaging>
-    <name>myproject - UI Frontend</name>
+    <name>myproject.ui.frontend - UI Frontend</name>
 
 
     <!-- ====================================================================== -->

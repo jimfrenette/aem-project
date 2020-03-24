@@ -21,18 +21,18 @@
     <!-- P A R E N T  P R O J E C T  D E S C R I P T I O N                      -->
     <!-- ====================================================================== -->
     <parent>
-        <groupId>com.adobe</groupId>
-        <artifactId>aem-dev-myproject</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <groupId>com.myproject</groupId>
+        <artifactId>myproject</artifactId>
+        <version>1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
     <!-- ====================================================================== -->
     <!-- P R O J E C T  D E S C R I P T I O N                                   -->
     <!-- ====================================================================== -->
-    <artifactId>aem-dev-myproject.it.tests</artifactId>
-    <name>myproject - Integration Tests Bundles</name>
-    <description>Bundles for Integration Tests for myproject</description>
+    <artifactId>myproject.it.tests</artifactId>
+    <name>My Project - Integration Tests Bundles</name>
+    <description>Bundles for Integration Tests for My Project</description>
 
     <!-- <scm>
         <connection></connection>
@@ -58,7 +58,7 @@
                         </goals>
                         <configuration>
                             <bnd><![CDATA[
-Bundle-Category: myproject
+Bundle-Category: My Project
 -exportcontents: ${packages;VERSIONED}
 -snapshot: ${tstamp;yyyyMMddHHmmssSSS}
 Bundle-DocURL:
@@ -114,6 +114,12 @@ Sling-Test-Regexp: .*Test
             <scope>provided</scope>
         </dependency>
         <dependency>
+            <groupId>com.adobe.aem</groupId>
+            <artifactId>uber-jar</artifactId>
+            <classifier>apis</classifier>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
             <scope>provided</scope>
@@ -132,16 +138,9 @@ Sling-Test-Regexp: .*Test
         </dependency>
 
         <dependency>
-            <groupId>com.adobe</groupId>
-            <artifactId>aem-dev-myproject.core</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>com.adobe.aem</groupId>
-            <artifactId>uber-jar</artifactId>
-            <classifier>apis</classifier>
+            <groupId>com.myproject</groupId>
+            <artifactId>myproject.core</artifactId>
+            <version>${project.version}</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

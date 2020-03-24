@@ -18,19 +18,19 @@
 
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.adobe</groupId>
-        <artifactId>aem-dev-myproject</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <groupId>com.myproject</groupId>
+        <artifactId>myproject</artifactId>
+        <version>1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
     <!-- ====================================================================== -->
     <!-- P R O J E C T  D E S C R I P T I O N                                   -->
     <!-- ====================================================================== -->
-    <artifactId>aem-dev-myproject.it.launcher</artifactId>
+    <artifactId>myproject.it.launcher</artifactId>
     <packaging>jar</packaging>
-    <name>myproject - Integration Tests Launcher</name>
-    <description>Integration Tests Launcher for myproject</description>
+    <name>My Project - Integration Tests Launcher</name>
+    <description>Integration Tests Launcher for My Project</description>
 
     <!-- <scm>
         <connection></connection>
@@ -234,8 +234,8 @@
                                 -->
                                 <sling.additional.bundle.1>org.apache.sling.junit.core</sling.additional.bundle.1>
                                 <sling.additional.bundle.2>org.apache.sling.junit.scriptable</sling.additional.bundle.2>
-                                <sling.additional.bundle.3>aem-dev-myproject.it.tests</sling.additional.bundle.3>
-                                <sling.additional.bundle.4>aem-dev-myproject.core</sling.additional.bundle.4>
+                                <sling.additional.bundle.3>myproject.it.tests</sling.additional.bundle.3>
+                                <sling.additional.bundle.4>myproject.core</sling.additional.bundle.4>
                                 <sling.additional.bundle.5>org.apache.sling.junit.remote</sling.additional.bundle.5>
                                 <sling.additional.bundle.6>org.apache.sling.testing.tools</sling.additional.bundle.6>
                             </systemPropertyVariables>
@@ -255,7 +255,6 @@
     </profiles>
 
     <dependencies>
-        <!-- Additional bundles needed by the Sling instance under test -->
         <dependency>
             <groupId>org.apache.sling</groupId>
             <artifactId>org.apache.sling.junit.core</artifactId>
@@ -266,12 +265,6 @@
             <groupId>org.apache.sling</groupId>
             <artifactId>org.apache.sling.junit.scriptable</artifactId>
             <version>1.0.12</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.sling</groupId>
-            <artifactId>org.apache.sling.junit.remote</artifactId>
-            <version>1.0.8</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -313,6 +306,13 @@
             <artifactId>slf4j-simple</artifactId>
             <scope>test</scope>
         </dependency>
+        <!-- Additional bundles needed by the Sling instance under test -->
+        <dependency>
+            <groupId>org.apache.sling</groupId>
+            <artifactId>org.apache.sling.junit.remote</artifactId>
+            <version>1.0.8</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
@@ -324,14 +324,14 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.adobe</groupId>
-            <artifactId>aem-dev-myproject.it.tests</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <groupId>com.myproject</groupId>
+            <artifactId>myproject.it.tests</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.adobe</groupId>
-            <artifactId>aem-dev-myproject.core</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <groupId>com.myproject</groupId>
+            <artifactId>myproject.core</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 </project>

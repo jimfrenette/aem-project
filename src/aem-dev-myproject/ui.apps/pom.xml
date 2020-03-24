@@ -21,19 +21,19 @@
     <!-- P A R E N T  P R O J E C T  D E S C R I P T I O N                      -->
     <!-- ====================================================================== -->
     <parent>
-        <groupId>com.adobe</groupId>
-        <artifactId>aem-dev-myproject</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <groupId>com.myproject</groupId>
+        <artifactId>myproject</artifactId>
+        <version>1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
     <!-- ====================================================================== -->
     <!-- P R O J E C T  D E S C R I P T I O N                                   -->
     <!-- ====================================================================== -->
-    <artifactId>aem-dev-myproject.ui.apps</artifactId>
+    <artifactId>myproject.ui.apps</artifactId>
     <packaging>content-package</packaging>
-    <name>myproject - UI apps</name>
-    <description>UI apps package for myproject</description>
+    <name>My Project - UI apps</name>
+    <description>UI apps package for My Project</description>
 
     <!-- ====================================================================== -->
     <!-- B U I L D   D E F I N I T I O N                                        -->
@@ -49,17 +49,17 @@
                 <artifactId>filevault-package-maven-plugin</artifactId>
                 <extensions>true</extensions>
                 <configuration>
-                    <group>com.adobe</group>
-                    <name>aem-dev-myproject.ui.apps</name>
+                    <group>com.myproject</group>
+                    <name>myproject.ui.apps</name>
                     <packageType>application</packageType>
                     <accessControlHandling>merge</accessControlHandling>
                     <properties>
-                        <cloudManagerTarget>none</cloudManagerTarget>>
+                        <cloudManagerTarget>none</cloudManagerTarget>
                     </properties>
                     <repositoryStructurePackages>
                         <repositoryStructurePackage>
-                            <groupId>com.adobe</groupId>
-                            <artifactId>aem-dev-myproject.repository-structure</artifactId>
+                            <groupId>com.myproject</groupId>
+                            <artifactId>myproject.ui.apps.structure</artifactId>
                         </repositoryStructurePackage>
                     </repositoryStructurePackages>
                     <embeddeds>
@@ -69,11 +69,13 @@
                             <target>/apps/myproject/install</target>
                         </embedded>
                         <embedded>
-                            <groupId>com.adobe</groupId>
-                            <artifactId>aem-dev-myproject.core</artifactId>
+                            <groupId>com.myproject</groupId>
+                            <artifactId>myproject.core</artifactId>
                             <target>/apps/myproject/install</target>
                         </embedded>
                     </embeddeds>
+                    <subPackages>
+                    </subPackages>
                     <dependencies>
                         <dependency>
                             <groupId>com.adobe.cq</groupId>
@@ -99,6 +101,25 @@
             <plugin>
                 <groupId>org.apache.sling</groupId>
                 <artifactId>htl-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>validate-htl-scripts</id>
+                        <goals>
+                            <goal>validate</goal>
+                        </goals>
+                        <phase>generate-sources</phase>
+                        <configuration>
+                            <generateJavaClasses>true</generateJavaClasses>
+                            <generatedJavaClassesPrefix>org.apache.sling.scripting.sightly</generatedJavaClassesPrefix>
+                            <allowedExpressionOptions>
+                                <allowedExpressionOption>cssClassName</allowedExpressionOption>
+                                <allowedExpressionOption>decoration</allowedExpressionOption>
+                                <allowedExpressionOption>decorationTagName</allowedExpressionOption>
+                                <allowedExpressionOption>wcmmode</allowedExpressionOption>
+                            </allowedExpressionOptions>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
@@ -108,9 +129,16 @@
     <!-- ====================================================================== -->
     <dependencies>
         <dependency>
-            <groupId>com.adobe</groupId>
-            <artifactId>aem-dev-myproject.core</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <groupId>com.myproject</groupId>
+            <artifactId>myproject.core</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.myproject</groupId>
+            <artifactId>myproject.ui.frontend</artifactId>
+            <version>${project.version}</version>
+            <type>zip</type>
         </dependency>
 
 
@@ -120,9 +148,9 @@
         </dependency>
 
         <dependency>
-            <groupId>com.adobe</groupId>
-            <artifactId>aem-dev-myproject.repository-structure</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <groupId>com.myproject</groupId>
+            <artifactId>myproject.ui.apps.structure</artifactId>
+            <version>${project.version}</version>
             <type>zip</type>
         </dependency>
 
@@ -137,7 +165,6 @@
             <artifactId>core.wcm.components.config</artifactId>
             <type>zip</type>
         </dependency>
-
         <dependency>
             <groupId>com.adobe.aem</groupId>
             <artifactId>uber-jar</artifactId>
@@ -157,6 +184,19 @@
         <dependency>
             <groupId>com.day.cq.wcm</groupId>
             <artifactId>cq-wcm-taglib</artifactId>
+        </dependency>
+        <!-- HTL dependencies needed for the HTL Maven Plugin source code generation -->
+        <dependency>
+            <groupId>org.apache.sling</groupId>
+            <artifactId>org.apache.sling.scripting.sightly.compiler</artifactId>
+            <version>1.2.4-1.4.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.sling</groupId>
+            <artifactId>org.apache.sling.scripting.sightly.runtime</artifactId>
+            <version>1.2.0-1.4.0</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>

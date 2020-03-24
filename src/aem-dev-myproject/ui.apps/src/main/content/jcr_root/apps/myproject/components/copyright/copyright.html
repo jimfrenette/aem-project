@@ -1,0 +1,11 @@
+<div data-sly-use.copyright="${'copyright.js'}">
+  <sly data-sly-test="${properties.renderYear}">
+  ${properties.prepend}${copyright.currentYear}</sly>${properties.text}
+</div>
+
+<!--/* edit mode placeholder */-->
+<sly data-sly-test="${wcmmode.edit}" data-sly-use.placeholder="${'placeholder.js'}">
+  <div data-sly-test="${placeholder}"
+       style="min-height: 20px;"
+       data-emptytext="${component.properties.jcr:title}"></div>
+</sly>
