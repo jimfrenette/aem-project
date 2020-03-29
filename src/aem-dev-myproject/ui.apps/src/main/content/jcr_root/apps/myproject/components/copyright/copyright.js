@@ -1,3 +1,7 @@
+/**
+ * For use when there isn't a Sling Model, e.g.,
+ * com.myproject.core.models.CopyrightModel
+ */
 "use strict";
 
 use( function() {

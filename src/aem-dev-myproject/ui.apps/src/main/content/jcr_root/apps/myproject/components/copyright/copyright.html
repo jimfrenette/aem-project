@@ -1,6 +1,6 @@
-<div data-sly-use.copyright="${'copyright.js'}">
+<div data-sly-use.model="com.myproject.core.models.CopyrightModel">
   <sly data-sly-test="${properties.renderYear}">
-  ${properties.prepend}${copyright.currentYear}</sly>${properties.text}
+  ${properties.prepend}${model.currentYear}</sly>${properties.text}
 </div>
 
 <!--/* edit mode placeholder */-->
