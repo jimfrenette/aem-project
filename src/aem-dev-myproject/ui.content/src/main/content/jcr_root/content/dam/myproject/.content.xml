@@ -4,7 +4,7 @@
     <jcr:content
         cq:conf="/conf/myproject"
         jcr:primaryType="nt:unstructured"
-        jcr:title="My Project">
+        jcr:title="myproject">
         <folderThumbnail/>
     </jcr:content>
     <asset.jpg/>

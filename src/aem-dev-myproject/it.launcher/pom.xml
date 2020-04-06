@@ -29,8 +29,8 @@
     <!-- ====================================================================== -->
     <artifactId>myproject.it.launcher</artifactId>
     <packaging>jar</packaging>
-    <name>My Project - Integration Tests Launcher</name>
-    <description>Integration Tests Launcher for My Project</description>
+    <name>myproject - Integration Tests Launcher</name>
+    <description>Integration Tests Launcher for myproject</description>
 
     <!-- <scm>
         <connection></connection>

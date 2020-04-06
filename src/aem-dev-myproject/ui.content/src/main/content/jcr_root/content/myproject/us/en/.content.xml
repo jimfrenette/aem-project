@@ -8,7 +8,7 @@
         jcr:primaryType="cq:PageContent"
         jcr:title="en"
         sling:resourceType="myproject/components/page"
-        pageTitle="My Project">
+        pageTitle="myproject">
         <root
             jcr:primaryType="nt:unstructured"
             sling:resourceType="myproject/components/container"

@@ -3,6 +3,6 @@
     cq:adobeTargetExportFormat="html"
     cq:allowedTemplates="[/conf/myproject/settings/wcm/templates/(?!page-).*]"
     jcr:primaryType="sling:OrderedFolder"
-    jcr:title="My Project Fragments">
+    jcr:title="myproject Fragments">
     <us/>
 </jcr:root>

@@ -20,7 +20,7 @@
             <languagenavigation jcr:primaryType="nt:unstructured">
                 <policy_xfm
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="My Project Language Navigation - Experience Fragment"
+                    jcr:title="myproject Language Navigation - Experience Fragment"
                     sling:resourceType="wcm/core/components/policy/policy"
                     navigationRoot="/content/myproject"
                     structureDepth="1">
@@ -210,7 +210,7 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Page Root"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[group:My Project - Content,/apps/myproject/components/form/container,group:My Project - Structure]">
+                    components="[group:myproject - Content,/apps/myproject/components/form/container,group:myproject - Structure]">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
                         <assetToComponentMapping jcr:primaryType="nt:unstructured">
@@ -240,7 +240,7 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Page Content"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[group:My Project - Content,/apps/myproject/components/form/container]">
+                    components="[group:myproject - Content,/apps/myproject/components/form/container]">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
                         <assetToComponentMapping jcr:primaryType="nt:unstructured">
@@ -278,7 +278,7 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="XF Root"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[group:My Project - Content,/apps/myproject/components/form/container]">
+                    components="[group:myproject - Content,/apps/myproject/components/form/container]">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
                         <assetToComponentMapping jcr:primaryType="nt:unstructured">
@@ -338,7 +338,24 @@
                     clientlibsJsHead="myproject.dependencies">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy>
+                <policy_spa
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="myproject SPA Page Policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    clientlibs="[myproject.react]">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_spa>
             </page>
+            <spa jcr:primaryType="nt:unstructured">
+                <default
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="myproject App Policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    clientlibs="[wcm.foundation.components.page.responsive]"
+                    isRoot="{Boolean}true"
+                    structureDepth="3"
+                />
+            </spa>
         </components>
     </myproject>
 </jcr:root>

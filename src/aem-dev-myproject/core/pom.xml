@@ -24,8 +24,8 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>myproject.core</artifactId>
-    <name>My Project - Core</name>
-    <description>Core bundle for My Project</description>
+    <name>myproject - Core</name>
+    <description>Core bundle for myproject</description>
     <build>
         <plugins>
             <plugin>

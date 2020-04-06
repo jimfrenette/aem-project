@@ -31,8 +31,8 @@
     <!-- P R O J E C T  D E S C R I P T I O N                                   -->
     <!-- ====================================================================== -->
     <artifactId>myproject.it.tests</artifactId>
-    <name>My Project - Integration Tests Bundles</name>
-    <description>Bundles for Integration Tests for My Project</description>
+    <name>myproject - Integration Tests Bundles</name>
+    <description>Bundles for Integration Tests for myproject</description>
 
     <!-- <scm>
         <connection></connection>
@@ -58,7 +58,7 @@
                         </goals>
                         <configuration>
                             <bnd><![CDATA[
-Bundle-Category: My Project
+Bundle-Category: myproject
 -exportcontents: ${packages;VERSIONED}
 -snapshot: ${tstamp;yyyyMMddHHmmssSSS}
 Bundle-DocURL:
