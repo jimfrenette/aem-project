@@ -1,0 +1,16 @@
+.foldingpanel {
+
+    .foldingpanel-toggle {
+        display: none;
+    }
+
+    // default: open
+    .foldingpanel-content {
+        display: none;
+    }
+
+    .foldingpanel-toggle:checked ~ .foldingpanel-content {
+        display: block;
+    }
+
+}
