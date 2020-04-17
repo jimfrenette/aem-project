@@ -1,9 +1,9 @@
 <sly data-sly-test.checked="${(wcmmode.edit || wcmmode.preview) ? 'checked' : ''}" />
 
+<input id="toggle${resource.path.hashCode}" class="foldingpanel-toggle" type="checkbox" checked="${checked}" />
 <label for="toggle${resource.path.hashCode}" class="foldingpanel-title" tabindex="0">
     <span>${properties.text @ context='html'}</span>
 </label>
-<input id="toggle${resource.path.hashCode}" class="foldingpanel-toggle" type="checkbox" checked="${checked}" />
 
 <div class="foldingpanel-content">
     <sly data-sly-resource="${'item' @ resourceType='wcm/foundation/components/parsys'}"></sly>
