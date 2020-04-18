@@ -2,3 +2,10 @@
 .DS_Store
 ._*
 Thumbs.db
+
+
+# -----------------------------------
+# optional local maven project config
+# https://jimfrenette.com/maven/#configuring-for-projects
+
+.mvn
