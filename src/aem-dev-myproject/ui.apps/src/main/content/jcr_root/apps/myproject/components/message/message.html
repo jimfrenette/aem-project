@@ -1,0 +1,13 @@
+<sly data-sly-test.classCollapse="${wcmmode.edit ? '' : 'collapse'}" />
+
+<div data-sly-test="${properties.enableMessage == 'true'}"
+     data-cmp-is="message"
+     data-cmp-id="message${resource.path.hashCode}"
+     data-days-hidden="${properties.daysHidden}"
+     class="cmp-message ${classCollapse}">
+     <div data-cmp-hook-message="text">${properties.text @ context='html'}</div>
+     <button>close</button>
+</div>
+
+<sly data-sly-use.templates="/apps/core/wcm/components/commons/v1/templates.html"
+     data-sly-call="${templates.placeholder @ isEmpty = !properties.text}"></sly>
