@@ -6,5 +6,5 @@ import "./main.scss";
 import "./**/*.js";
 import "./**/*.ts";
 
-// builds all component js files into site.js
+// builds component files into site.js
 import "../components/*.js";

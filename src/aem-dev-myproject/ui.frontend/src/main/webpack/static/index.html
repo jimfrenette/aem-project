@@ -1,123 +1,345 @@
+
 <!DOCTYPE HTML>
 <html lang="en">
-<head>
+    <head>
     <meta charset="UTF-8"/>
-    <title>Static Frontend file</title>
+    <title>en</title>
+    
+    
     <meta name="template" content="page-content"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="stylesheet" href="/etc.clientlibs/mysite/clientlibs/clientlib-base.css" type="text/css">
-    <script type="text/javascript" src="/etc.clientlibs/mysite/clientlibs/clientlib-dependencies.js"></script>
-    <link rel="stylesheet" href="/etc.clientlibs/mysite/clientlibs/clientlib-dependencies.css" type="text/css">
+    
+
+    
+
+    
+<link rel="stylesheet" href="/etc.clientlibs/myproject/clientlibs/clientlib-base.css" type="text/css">
+
+
+
+
+
+
+    
+    
+    
+
+    
+
+    
+    
+<script type="text/javascript" src="/etc.clientlibs/myproject/clientlibs/clientlib-dependencies.js"></script>
+
+
+
+    
+    
+<link rel="stylesheet" href="/etc.clientlibs/myproject/clientlibs/clientlib-dependencies.css" type="text/css">
+<link rel="stylesheet" href="/etc.clientlibs/myproject/clientlibs/clientlib-site.css" type="text/css">
+
+
+
+    
+
+    
 </head>
-<body class="page basicpage">
+    <body class="page basicpage">
+        
+        
+            
+
+
+
+            
 <div class="root container responsivegrid">
+
+    
+    
+    
     <div class="cmp-container">
+        
         <header class="experiencefragment">
-            <div class="cmp-experiencefragment">
-                <div class="cmp-container">
-                    <div class="navigation">
-                        <nav class="cmp-navigation" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
-                            <ul class="cmp-navigation__group">
-                                <li class="cmp-navigation__item cmp-navigation__item--level-0 cmp-navigation__item--active">
-                                    <a href="/content/mysite/language-masters/en.html" title="My Site" aria-current="page" class="cmp-navigation__item-link">My Site</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="languagenavigation">
-                        <nav class="cmp-languagenavigation">
-                            <ul class="cmp-languagenavigation__group">
-                                <li class="cmp-languagenavigation__item cmp-languagenavigation__item--langcode-en cmp-languagenavigation__item--level-0">
-                                    <span class="cmp-languagenavigation__item-title" lang="en">United States</span>
-                                    <ul class="cmp-languagenavigation__group">
-                                        <li class="cmp-languagenavigation__item cmp-languagenavigation__item--langcode-en cmp-languagenavigation__item--level-1">
-                                            <a class="cmp-languagenavigation__item-link" href="/content/mysite/us/en.html" hreflang="en" lang="en" rel="alternate" title="English">English</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="search">
-                        <section class="cmp-search" role="search" data-cmp-is="search" data-cmp-min-length="3" data-cmp-results-size="10">
-                            <form class="cmp-search__form" data-cmp-hook-search="form" method="get" action="/content/mysite/language-masters/en.searchresults.json/_jcr_content/root/search" autocomplete="off">
-                                <div class="cmp-search__field">
-                                    <i class="cmp-search__icon" data-cmp-hook-search="icon"></i>
-                                    <span class="cmp-search__loading-indicator" data-cmp-hook-search="loadingIndicator"></span>
-                                    <input class="cmp-search__input" data-cmp-hook-search="input" type="text" name="fulltext" placeholder="Search" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-invalid="false"/>
-                                    <button class="cmp-search__clear" data-cmp-hook-search="clear">
-                                        <i class="cmp-search__clear-icon"></i>
-                                    </button>
-                                </div>
-                            </form>
-                            <div class="cmp-search__results" data-cmp-hook-search="results" role="listbox" aria-multiselectable="false"></div>
-                            <script data-cmp-hook-search="itemTemplate" type="x-template">
-                                <a class="cmp-search__item" data-cmp-hook-search="item">
-                                    <span class="cmp-search__item-title" data-cmp-hook-search="itemTitle"></span>
-                                </a>
-                            </script>
-                        </section></div>
-                </div>
-            </div>
-        </header>
-        <main class="container responsivegrid">
-            <div class="cmp-container">
-                <div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
-                    <div class="title aem-GridColumn aem-GridColumn--default--12">
-                        <div class="cmp-title">
-                            <h1 class="cmp-title__text">Welcome to My Site!</h1>
-                        </div>
-                    </div>
-                    <div class="container responsivegrid aem-GridColumn aem-GridColumn--default--12">
-                        <div class="cmp-container">
-                            <div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
-                                <div class="text aem-GridColumn aem-GridColumn--default--12">
-                                    <div class="cmp-text">
-                                        <p>This is the main welcome page of your web site. A few notes about this site:</p>
-                                        <ul>
-                                            <li>It is built entirely with the Core Components - see the <a href="https://www.adobe.com/go/aem_cmp_library">Component Library</a> to view the components in all their shapes and forms.</li>
-                                            <li>Only the Hello World component has been built custom to illustrate how further components can be built (which also shows how JavaScript is best initialized for components, so that it also works well with the Page Editor).</li>
-                                            <li>The page header and footer are assembled as Experience Fragments, which <a href="https://docs.adobe.com/content/help/en/experience-manager-core-components/using/components/experience-fragment.html#localized-site-structure">can also be localized if needed</a>.<br />
-                                            </li>
-                                            <li>The Style System is used to insert a sematic &lt;header&gt; and &lt;footer&gt; element to the corresponding Experience Fragment components, as well as a &lt;main&gt; element to the container of the page content. This allows to apply some CSS specifically to these sections of the page.</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="helloworld aem-GridColumn aem-GridColumn--default--12"><div class="cmp-helloworld" data-cmp-is="helloworld">
-                                    <h2 class="cmp-helloworld__title">Hello World Component</h2>
-                                    <div class="cmp-helloworld__item">
-                                        <p class="cmp-helloworld__item-label">Model message:</p>
-                                        <pre class="cmp-helloworld__item-output" data-cmp-hook-helloworld="model">Hello World!
-Resource type is: mysite/components/helloworld
-Current page is:  /content/mysite/language-masters/en
-This is instance: 78f60b4a-a52a-4021-82d5-fb17f5fb95cf
-</pre>
-                                    </div>
-                                </div></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
-        <footer class="experiencefragment">
-            <div class="cmp-experiencefragment">
-                <div class="cmp-container">
-                    <div class="separator">
-                        <div class="cmp-separator">
-                            <hr class="cmp-separator__horizontal-rule"/>
-                        </div></div>
-                    <div class="text">
-                        <div class="cmp-text">
-                            <p>Copyright 2019, My Site. All rights reserved.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+<div class="cmp-experiencefragment cmp-experiencefragment--header">
+
+
+    
+    
+    
+    <div class="cmp-container">
+        
+        <div class="navigation">
+<nav class="cmp-navigation" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+    <ul class="cmp-navigation__group">
+        
+    <li class="cmp-navigation__item cmp-navigation__item--level-0 cmp-navigation__item--active">
+        
+    <a href="/content/myproject/us/en.html" title="My Project" aria-current="page" class="cmp-navigation__item-link">My Project</a>
+
+        
+    </li>
+
+    </ul>
+</nav>
+
+    
+
+</div>
+<div class="languagenavigation">
+<nav class="cmp-languagenavigation">
+    <ul class="cmp-languagenavigation__group">
+        
+    <li class="cmp-languagenavigation__item cmp-languagenavigation__item--langcode-en cmp-languagenavigation__item--level-0 cmp-languagenavigation__item--active">
+        
+    
+    <a class="cmp-languagenavigation__item-link" href="/content/myproject/us/en.html" hreflang="en" lang="en" rel="alternate" title="en">en</a>
+
+        
+    </li>
+
+    </ul>
+</nav>
+
+    
+
+</div>
+<div class="search">
+<section class="cmp-search" role="search" data-cmp-is="search" data-cmp-min-length="3" data-cmp-results-size="10">
+    <form class="cmp-search__form" data-cmp-hook-search="form" method="get" action="/content/myproject/us/en.searchresults.json/_jcr_content/root/search" autocomplete="off">
+        <div class="cmp-search__field">
+            <i class="cmp-search__icon" data-cmp-hook-search="icon"></i>
+            <span class="cmp-search__loading-indicator" data-cmp-hook-search="loadingIndicator"></span>
+            <input class="cmp-search__input" data-cmp-hook-search="input" type="text" name="fulltext" placeholder="Search" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-invalid="false"/>
+            <button class="cmp-search__clear" data-cmp-hook-search="clear">
+                <i class="cmp-search__clear-icon"></i>
+            </button>
+        </div>
+    </form>
+    <div class="cmp-search__results" data-cmp-hook-search="results" role="listbox" aria-multiselectable="false"></div>
+    
+<script data-cmp-hook-search="itemTemplate" type="x-template">
+    <a class="cmp-search__item" data-cmp-hook-search="item">
+        <span class="cmp-search__item-title" data-cmp-hook-search="itemTitle"></span>
+    </a>
+</script>
+</section></div>
+
+        
+    </div>
+
+</div>
+
+    
+</header>
+<main class="container responsivegrid">
+
+    
+    <div class="cmp-container">
+        
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="title aem-GridColumn aem-GridColumn--default--12">
+<div class="cmp-title">
+    <h1 class="cmp-title__text">My Project</h1>
+</div>
+
+    
+
+</div>
+<div class="container responsivegrid aem-GridColumn aem-GridColumn--default--12">
+
+    
+    <div class="cmp-container">
+        
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="teaser aem-GridColumn--default--none aem-GridColumn aem-GridColumn--offset--default--0 aem-GridColumn--default--4">
+<div class="cmp-teaser">
+    
+    
+
+    <div class="cmp-teaser__content">
+        
+    <h3 class="cmp-teaser__title">
+        Epic Journey
+    </h3>
+
+        
+    <div class="cmp-teaser__description"><p>Don't stop half way, go for the top!</p>
+</div>
+
+        
+    
+
     </div>
 </div>
-<script type="text/javascript" src="/etc.clientlibs/mysite/clientlibs/clientlib-site.js"></script>
-<script type="text/javascript" src="/etc.clientlibs/mysite/clientlibs/clientlib-base.js"></script>
-</body>
+
+    
+
+</div>
+<div class="teaser aem-GridColumn--default--none aem-GridColumn aem-GridColumn--offset--default--0 aem-GridColumn--default--4">
+<div class="cmp-teaser">
+    
+    
+
+    <div class="cmp-teaser__content">
+        
+    <h3 class="cmp-teaser__title">
+        Epic Journey
+    </h3>
+
+        
+    <div class="cmp-teaser__description"><p>Don't stop half way, go for the top!</p>
+</div>
+
+        
+    
+
+    </div>
+</div>
+
+    
+
+</div>
+<div class="teaser aem-GridColumn--default--none aem-GridColumn aem-GridColumn--offset--default--0 aem-GridColumn--default--4">
+<div class="cmp-teaser">
+    
+    
+
+    <div class="cmp-teaser__content">
+        
+    <h3 class="cmp-teaser__title">
+        Epic Journey
+    </h3>
+
+        
+    <div class="cmp-teaser__description"><p>Don't stop half way, go for the top!</p>
+</div>
+
+        
+    
+
+    </div>
+</div>
+
+    
+
+</div>
+<div class="helloworld aem-GridColumn aem-GridColumn--default--12">
+<div class="cmp-helloworld" data-cmp-is="helloworld">
+    <h2 class="cmp-helloworld__title">Hello World Component</h2>
+    <div class="cmp-helloworld__item">
+        <p class="cmp-helloworld__item-label">Text property:</p>
+        <pre class="cmp-helloworld__item-output" data-cmp-hook-helloworld="property">lalala :)</pre>
+    </div>
+    <div class="cmp-helloworld__item">
+        <p class="cmp-helloworld__item-label">Model message:</p>
+        <pre class="cmp-helloworld__item-output" data-cmp-hook-helloworld="model">Hello World!
+Resource type is: myproject/components/helloworld
+Current page is:  /content/myproject/us/en
+This is instance: 1331e765-f4ee-4c44-88c8-88791fc03225
+</pre>
+    </div>
+</div>
+</div>
+<div class="message aem-GridColumn aem-GridColumn--default--12">
+
+<div data-cmp-is="message" data-cmp-id="message2065142705" data-days-hidden="3" class="cmp-message collapse">
+     <div data-cmp-hook-message="text"><p>This site uses cookies to provide you with a great user experience. By using example.com, you accept our <a href="/content/myproject/us/en.html">use of cookies</a>. </p>
+</div>
+     <button>close</button>
+</div>
+
+
+    
+
+</div>
+
+    
+</div>
+
+    </div>
+
+    
+</div>
+
+    
+</div>
+
+    </div>
+
+    
+</main>
+<footer class="experiencefragment">
+<div class="cmp-experiencefragment cmp-experiencefragment--footer">
+
+
+    
+    <div class="cmp-container">
+        
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="separator aem-GridColumn aem-GridColumn--default--12">
+<div class="cmp-separator">
+    <hr class="cmp-separator__horizontal-rule"/>
+</div></div>
+<div class="text aem-GridColumn aem-GridColumn--default--12">
+<div class="cmp-text">
+    <p>Copyright 2020, My Project. All rights reserved.</p>
+<p>345 Park Avenue, San Jose, CA 95110-2704, USA</p>
+
+</div>
+
+    
+
+</div>
+
+    
+</div>
+
+    </div>
+
+    
+</div>
+
+    
+</footer>
+
+        
+    </div>
+
+</div>
+
+
+            
+    
+    
+<script type="text/javascript" src="/etc.clientlibs/myproject/clientlibs/clientlib-site.js"></script>
+
+
+
+    
+
+    
+    
+<script type="text/javascript" src="/etc.clientlibs/myproject/clientlibs/clientlib-base.js"></script>
+
+
+
+
+
+    
+
+    
+
+
+            
+
+        
+    </body>
 </html>

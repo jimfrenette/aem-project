@@ -1,0 +1,13 @@
+// Best practice:
+// For a good separation of concerns, don't rely on the DOM element names,
+// but on dedicated CSS selectors to identify all elements
+.cmp-message {
+
+    transition: all .3s ease;
+
+    &.collapse {
+        height: 0;
+        visibility: collapse;
+    }
+
+}
