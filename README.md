@@ -4,7 +4,8 @@
 
 #### Archetype 23
 
-* [AEM Maven Project Copyright Component](https://jimfrenette.com/2020/03/aem-copyright-component/)
+* [AEM Maven Project Message Component](https://jimfrenette.com/aem/components/aem-message-component/)
+* [AEM Maven Project Copyright Component](https://jimfrenette.com/aem/components/aem-copyright-component/)
 * [AEM Maven Project Archetype 23](https://jimfrenette.com/2020/02/aem-maven-project-archetype-23/)
 
 #### Archetype 22
