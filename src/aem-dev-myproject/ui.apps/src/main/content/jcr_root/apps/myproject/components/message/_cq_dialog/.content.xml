@@ -134,7 +134,7 @@
                             </cui>
                         </uiSettings>
                     </text>
-                    <properties
+                    <enable
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Enable"
                         sling:resourceType="granite/ui/components/coral/foundation/container"
@@ -157,7 +157,7 @@
                                 max="365"
                                 value="3" />
                         </items>
-                    <properties>
+                    <enable>
                 </items>
             </tabs>
         </items>

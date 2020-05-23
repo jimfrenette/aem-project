@@ -10,4 +10,5 @@
 </div>
 
 <sly data-sly-use.templates="/apps/core/wcm/components/commons/v1/templates.html"
-     data-sly-call="${templates.placeholder @ isEmpty = !properties.text}"></sly>
+     data-sly-call="${templates.placeholder @ isEmpty = !properties.text || properties.enableMessage == 'false',
+     emptyTextAppend = properties.enableMessage == 'false' ? 'Disabled' : ''}"></sly>
