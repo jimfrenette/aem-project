@@ -140,7 +140,7 @@
                         sling:resourceType="granite/ui/components/coral/foundation/container"
                         margin="{Boolean}true">
                         <items jcr:primaryType="nt:unstructured">
-                            <enableHeaderMessage
+                            <enableMessage
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/switch"
                                 fieldLabel="Enable Message"
