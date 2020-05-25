@@ -7,4 +7,4 @@
 
 * * *
 
-* [AEM Folding Panel Component](https://jimfrenette.com//2020/04/aem-foldingpanel-component/)
+* [AEM Folding Panel Component](https://jimfrenette.com/aem/components/aem-foldingpanel-component/)
