@@ -1,4 +1,4 @@
-<sly data-sly-test.classCollapse="${wcmmode.edit ? '' : 'collapse'}" />
+<sly data-sly-test.classCollapse="${wcmmode.edit || wcmmode.preview ? '' : 'collapse'}" />
 
 <div data-sly-test="${properties.enableMessage == 'true'}"
      data-cmp-is="message"
