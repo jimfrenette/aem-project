@@ -1,0 +1,15 @@
+{
+    "workbench.colorCustomizations": {
+        "activityBar.activeBackground": "#8ad8c6",
+        "activityBar.activeBorder": "#b970cf",
+        "activityBar.background": "#8ad8c6",
+        "activityBar.foreground": "#15202b",
+        "activityBar.inactiveForeground": "#15202b99",
+        "activityBarBadge.background": "#b970cf",
+        "activityBarBadge.foreground": "#15202b",
+        "statusBar.background": "#64cbb4",
+        "statusBar.foreground": "#15202b",
+        "statusBarItem.hoverBackground": "#3fbda1"
+    },
+    "peacock.remoteColor": "#64cbb4"
+}
