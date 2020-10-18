@@ -2,6 +2,7 @@
 
 const path                    = require('path');
 const webpack                 = require('webpack');
+const autoprefixer            = require('autoprefixer');
 const MiniCssExtractPlugin    = require('mini-css-extract-plugin');
 const TSConfigPathsPlugin     = require('tsconfig-paths-webpack-plugin');
 const CopyWebpackPlugin       = require('copy-webpack-plugin');
@@ -68,7 +69,7 @@ module.exports = {
                         options: {
                             plugins() {
                                 return [
-                                    require('autoprefixer')
+                                    autoprefixer({ grid: true })
                                 ];
                             }
                         }
