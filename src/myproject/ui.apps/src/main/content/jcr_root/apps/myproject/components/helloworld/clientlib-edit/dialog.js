@@ -3,16 +3,26 @@
 
         console.log('====== DIALOG READY ======');
 
-        var carsdata = [];
-
-        $.getJSON("/etc.clientlibs/myproject/clientlibs/clientlib-base/resources/data/cars.json").done(function(data) {
-            carsdata = data.cars;
-            console.log(carsdata);
-        });
-
         const form = document.querySelector('form.cq-dialog');
         const cars = form.querySelector('[data-granite-coral-multifield-name="./cars"]');
         const carsAdd = cars.querySelector('button[coral-multifield-add]');
+
+        var carsdata = [];
+        var savedcarsdata = [];
+
+        function getCars() {
+            $.getJSON("/etc.clientlibs/myproject/clientlibs/clientlib-base/resources/data/cars.json").done(function(data) {
+                carsdata = data.cars;
+                console.log(carsdata);
+            });
+        }
+
+        function getSavedCars() {
+            $.getJSON(form.action + '.json').done(function(data) {
+                savedcarsdata = data;
+                console.log(savedcarsdata);
+            });
+        }
 
         function populateMakes(makes) {
             const items = makes.querySelectorAll('coral-select-item');
@@ -32,18 +42,23 @@
             });
         }
 
-        carsAdd.addEventListener('click', function() {
-            // allow time for coral to inject field
-            setTimeout(function(){
-                const nodes = cars.querySelectorAll('coral-multifield-item');
-                var index = nodes.length - 1,
-                    last = nodes[index],
-                    makes = last.querySelector(`coral-select[name="./make"]`);
-                populateMakes(makes);
-            }, 1000);
-        });
+        function init() {
+            getSavedCars();
+            getCars();
 
+            carsAdd.addEventListener('click', function() {
+                // allow time for coral to inject field
+                setTimeout(function(){
+                    const nodes = cars.querySelectorAll('coral-multifield-item');
+                    var index = nodes.length - 1,
+                        last = nodes[index],
+                        makes = last.querySelector(`coral-select[name="./make"]`);
+                    populateMakes(makes);
+                }, 1000);
+            });
+        }
 
+        init();
     });
 
  })($, $(document), Coral);
