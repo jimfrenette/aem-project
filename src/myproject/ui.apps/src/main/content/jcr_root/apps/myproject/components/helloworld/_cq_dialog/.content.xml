@@ -23,7 +23,8 @@
                         level="3"/>
                     <cars
                         jcr:primaryType="nt:unstructured"
-                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield">
+                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                        composite="{Boolean}true">
                         <field
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="granite/ui/components/coral/foundation/container"
@@ -33,21 +34,31 @@
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="granite/ui/components/coral/foundation/form/select"
                                     emptyText="Select a make"
-                                    listOrder="6"
-                                    metaType="enumeration"
-                                    name="./make"
-                                    renderReadOnly="false"
-                                    showEmptyInReadOnly="true">
+                                    fieldLabel="Car"
+                                    name="./make">
+                                    <!--
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <ford
+                                            jcr:primaryType="nt:unstructured"
+                                            selected="{Boolean}true"
+                                            text="Ford"
+                                            value="Ford"/>
+                                    </items>
+                                    -->
                                 </make>
                                 <model
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="granite/ui/components/coral/foundation/form/select"
                                     emptyText="Select a model"
-                                    listOrder="6"
-                                    metaType="enumeration"
-                                    name="./model"
-                                    renderReadOnly="false"
-                                    showEmptyInReadOnly="true">
+                                    name="./model">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <!--
+                                        <first
+                                            jcr:primaryType="nt:unstructured"
+                                            selected="{Boolean}true"
+                                            text="1"
+                                            value="1"/>-->
+                                    </items>
                                 </model>
                             </items>
                         </field>
