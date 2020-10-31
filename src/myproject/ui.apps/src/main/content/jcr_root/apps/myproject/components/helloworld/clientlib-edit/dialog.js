@@ -5,79 +5,98 @@
 
         const form = document.querySelector('form.cq-dialog');
 
-        var cars, carsAdd;
-        var carsdata = [];
-        var carscontent = [];
+        var carsfield = {},
+            carsdata = [];
 
         function getCars() {
-            $.getJSON("/etc.clientlibs/myproject/clientlibs/clientlib-base/resources/data/cars.json").done(function(data) {
-                carsdata = data.cars;
-                console.log(carsdata);
-            });
-        }
-
-        function getSavedCars() {
-            $.getJSON(form.action + '.json').done(function(data) {
-
-                // setMake(data.make);
-            });
-        }
-
-        function setMakeItem(make, data) {
-            makeItems = make.querySelectorAll(`coral-select-item`);
-            Array.from(makeItems).forEach((el, index) => {
-                if (data[index] == el.value) {
-                    el.selected = true;
+            $.ajax({
+                url: `/etc.clientlibs/myproject/clientlibs/clientlib-base/resources/data/cars.json`,
+                async: true,
+                dataType: 'json',
+                success: function (data) {
+                    carsdata = data.cars;
                 }
             });
         }
 
-        function setMake(data) {
-            makes = form.querySelectorAll(`coral-select[name="./make"]`);
-            Array.from(makes).forEach((el) => {
-                setMakeItem(el, data);
+        function getContent(i) {
+            var content = {};
+            $.ajax({
+                url: `${form.action}/cars/item${i}.json`,
+                async: false,
+                dataType: 'json',
+                success: function (data) {
+                    content.make = data.make;
+                    content.model = data.model;
+                }
+            });
+            return content;
+        }
+
+        /**
+         * @param {*} select (element)
+         * @param {*} content (jcr:content)
+         */
+        function populateItem(select, key, content) {
+            for (var i = 0, len = carsdata.length; i < len; ++i) {
+                var option = document.createElement('coral-select-item');
+                if (key == 'make') {
+                    option.textContent = carsdata[i].make
+                    option.value = carsdata[i].make;
+                } else {
+                }
+                select.appendChild(option);
+            }
+
+            Coral.commons.ready(select, function (component) {
+                if (key == 'make') {
+                    if (content) {
+                        component.value = content.make; }
+                    component.addEventListener('change', function(evt) {
+                        // todo: cascade selection
+                    });
+                } else {
+                }
             });
         }
 
-        function populateMakes(makes) {
-            const items = makes.querySelectorAll('coral-select-item');
-            const inputHandle = makes.querySelector('input[handle]');
-
-            for (var i = 0, len = carsdata.length; i < len; ++i) {
-                var item = document.createElement('coral-select-item');
-                item.textContent = carsdata[i].make;
-                item.value = carsdata[i].make;
-                makes.appendChild(item);
+        function populateItems() {
+            for (var i = 0, len = carsfield.items.length; i < len; ++i) {
+                var content = getContent(i);
+                var select1 = carsfield.items[i].querySelector(`coral-select[name="./cars/item${i}/./make"]`);
+                populateItem(select1, 'make', content);
+                var select2 = carsfield.items[i].querySelector(`coral-select[name="./cars/item${i}/./model"]`);
+                populateItem(select2, 'model', content);
             }
-
-            Coral.commons.ready(makes, function (component) {
-                component.addEventListener('change', function(evt) {
-                    console.log(inputHandle.value);
-                });
-            });
         }
 
         function init() {
             try {
-                cars = form.querySelector('[data-granite-coral-multifield-name="./cars"]');
-                carsAdd = cars.querySelector('button[coral-multifield-add]');
+                carsfield.root = form.querySelector('[data-granite-coral-multifield-name="./cars"]');
+                carsfield.add = carsfield.root.querySelector('button[coral-multifield-add]');
+                carsfield.items = carsfield.root.querySelectorAll('coral-multifield-item');
             }
             catch(err) {
                 console.log(err.message + ', likely due to N/A component');
                 return;
             }
 
-            getSavedCars();
             getCars();
 
-            carsAdd.addEventListener('click', function() {
-                // allow time for coral to inject field
+            if (carsfield.items) {
+                // give coral a sec to inject fields
                 setTimeout(function(){
-                    const nodes = cars.querySelectorAll('coral-multifield-item');
-                    var index = nodes.length - 1,
-                        last = nodes[index],
-                        makes = last.querySelector(`coral-select[name="./cars/item${index}/./make"]`);
-                    populateMakes(makes);
+                    populateItems();
+                }, 1000);
+            }
+
+            carsfield.add.addEventListener('click', function() {
+                // give coral a sec to inject fields
+                setTimeout(function(){
+                    carsfield.items = carsfield.root.querySelectorAll('coral-multifield-item');
+                    var index = carsfield.items.length - 1,
+                        select = carsfield.items[index].querySelector(`coral-select[name="./cars/item${index}/./make"]`);
+                    populateItem(select, 'make', null);
                 }, 1000);
             });
         }
