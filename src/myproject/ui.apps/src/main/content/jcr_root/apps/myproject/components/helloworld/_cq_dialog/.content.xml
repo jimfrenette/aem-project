@@ -36,29 +36,12 @@
                                     emptyText="Select a make"
                                     fieldLabel="Car"
                                     name="./make">
-                                    <!--
-                                    <items jcr:primaryType="nt:unstructured">
-                                        <ford
-                                            jcr:primaryType="nt:unstructured"
-                                            selected="{Boolean}true"
-                                            text="Ford"
-                                            value="Ford"/>
-                                    </items>
-                                    -->
                                 </make>
                                 <model
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="granite/ui/components/coral/foundation/form/select"
                                     emptyText="Select a model"
                                     name="./model">
-                                    <items jcr:primaryType="nt:unstructured">
-                                        <!--
-                                        <first
-                                            jcr:primaryType="nt:unstructured"
-                                            selected="{Boolean}true"
-                                            text="1"
-                                            value="1"/>-->
-                                    </items>
                                 </model>
                             </items>
                         </field>
