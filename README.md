@@ -2,6 +2,10 @@
 
 ### Resources
 
+#### Archetype 24
+
+* [AEM Component Cascade Select Dropdown in Dialog](https://jimfrenette.com/aem/components/dialog-coral-ui-select-cascade/)
+
 #### Archetype 23
 
 * [AEM Maven Project Message Component](https://jimfrenette.com/aem/components/aem-message-component/)
