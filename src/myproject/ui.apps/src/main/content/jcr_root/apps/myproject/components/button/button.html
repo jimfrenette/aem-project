@@ -1,5 +1,4 @@
-<sly data-sly-test.path="${properties.link ? properties.link : ''}"
-     data-sly-test.linkTarget="${properties.link && properties.linkTarget == 'true' ? '_blank' : ''}"/>
+<sly data-sly-set.linkTarget="${properties.link && properties.linkTarget == 'true' ? '_blank' : ''}"/>
 
 <button data-sly-use.button="com.adobe.cq.wcm.core.components.models.Button"
         data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
