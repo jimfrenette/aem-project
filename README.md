@@ -2,6 +2,10 @@
 
 ### Resources
 
+#### Archetype 24
+
+* [AEM Maven Project Button Component](https://jimfrenette.com/aem/components/aem-button-component/)
+
 #### Archetype 23
 
 * [AEM Maven Project Message Component](https://jimfrenette.com/aem/components/aem-message-component/)
