@@ -39,6 +39,14 @@ mvn -PautoInstallPackage -Daem.port=4503 clean install
 validate `myproject` running on publish
 http://localhost:4503/content/myproject/us/en.html
 
+update your hosts file to map 127.0.0.1 to the entries in `docker-compose.yml`
+```bash
+# AEM myproject dispatcher
+127.0.0.1	author.mycompany.local
+127.0.0.1	myproject.mycompany.local
+```
+
+Start the container
 ```bash
 docker-compose up -d
 ```
