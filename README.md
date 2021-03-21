@@ -31,6 +31,31 @@ docker build \
     .
 ```
 
+If you need to setup a publish instance ...
+
+create publish folder and rename the aem distro quickstart jar
+```bash
+mkdir publish
+cd publish
+
+java -jar cq5-publish-p4503.jar -unpack
+```
+
+update the `crx-quickstart/bin/`**start** script to use the publish port, e.g.,
+```bash
+# TCP port used for stop and status scripts
+if [ -z "$CQ_PORT" ]; then
+    CQ_PORT=4503
+fi
+```
+```bash
+# runmode(s)
+# will not be used if repository is already present
+if [ -z "$CQ_RUNMODE" ]; then
+    CQ_RUNMODE='publish'
+fi
+```
+
 After starting the publish instance, if needed, build and deploy `myproject` to publish instance running on port 4503
 ```bash
 mvn -PautoInstallPackage -Daem.port=4503 clean install
