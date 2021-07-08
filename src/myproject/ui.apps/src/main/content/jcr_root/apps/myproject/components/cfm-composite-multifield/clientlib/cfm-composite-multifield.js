@@ -51,7 +51,6 @@
             });
         });
     }
-
     function fillMultifieldItems(mfItem){
         if(mfItem == null){
             return;
@@ -135,7 +134,6 @@
                 data: _.merge(data, mfsData),
                 cache: false
             };
-
             CFM.RequestManager.schedule({
                 request: request,
                 type: CFM.RequestManager.REQ_BLOCKING,
