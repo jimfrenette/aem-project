@@ -1,139 +1,61 @@
 (function ($) {
     var CFM = window.Dam.CFM,
-        MASTER = "master",
-        CFM_EDITOR_SEL = ".content-fragment-editor",
-        CORAL_MF_ITEM = "coral-multifield-item",
-        EAEM_COMPOSITE_ITEM_VALUE = "data-eaem-composite-item-value",
-        MF_NAME_ATTR = "data-granite-coral-multifield-name",
-        COMPOSITE_MF_SEL = "[data-granite-coral-multifield-composite]";
+        COMPOSITE_ITEM_VALUE = 'data-composite-item-value',
+        DEFAULT_VARIATION = 'master',
+        MF_NAME_ATTR = 'data-granite-coral-multifield-name';
+
+    var config = {};
+
+    config.form = document.querySelector('.content-fragment-editor');
+    config.multiComposites = config.form.querySelectorAll('[data-granite-coral-multifield-composite]');
+
+    /**
+     * EXIT when composite mulltifields do not exist
+     **/
+    if (config.multiComposites.length === 0) {
+        return;
+    }
 
     CFM.Core.registerReadyHandler(getMultifieldsContent);
 
     extendRequestSave();
 
-    function getMultifieldsContent(){
-        if(!compositeMutifieldsExist()){
-            return;
-        }
-
-        var url = CFM.EditSession.fragment.urlBase + "/jcr:content/data.2.json";
-
-        $.ajax(url).done(loadContentIntoMultiFields);
-    }
-
-    function loadContentIntoMultiFields(data){
-        var $composites = $(COMPOSITE_MF_SEL), mfValArr, mfAddEle,
-            vData = data[getVariation()], $lastItem;
-
-        if(_.isEmpty(vData)){
-            return;
-        }
-
-        _.each($composites, function(mField){
-            mfValArr = vData[getNameDotSlashRemoved(($(mField)).attr(MF_NAME_ATTR))];
-
-            if(_.isEmpty(mfValArr)){
-                return;
-            }
-
-            mfAddEle = mField.querySelector("[coral-multifield-add]");
-
-            _.each(mfValArr, function(mfMap){
-                mfAddEle.click();
-
-                $lastItem = $(mField).find(CORAL_MF_ITEM).last();
-
-                $lastItem.attr(EAEM_COMPOSITE_ITEM_VALUE, mfMap);
-
-                Coral.commons.ready($lastItem[0], function (lastItem) {
-                    fillMultifieldItems(lastItem);
-                });
-            });
-        });
-    }
-    function fillMultifieldItems(mfItem){
-        if(mfItem == null){
-            return;
-        }
-
-        var mfMap = mfItem.getAttribute(EAEM_COMPOSITE_ITEM_VALUE);
-
-        if(_.isEmpty(mfMap)){
-            return;
-        }
-
-        mfMap = JSON.parse(mfMap);
-
-        _.each(mfMap, function(fValue, fKey){
-            let field = mfItem.querySelector("[name$='" + fKey + "']");
-
-            if(field == null){
-                return;
-            }
-
-            setFieldValue(field, fValue);
-        });
-    }
-
-    function setFieldValue(field, value){
-        if( field.tagName == "CORAL-CHECKBOX"){
-            field.checked = (field.getAttribute("value") == value);
-        }else{
-            field.value = value;
-        }
-    }
-
-    function getVariation(){
-        var variation = $(CFM_EDITOR_SEL).data('variation');
-
-        variation = variation || "master";
-
-        return variation;
-    }
-
-    function compositeMutifieldsExist(){
-        return !_.isEmpty($(COMPOSITE_MF_SEL));
-    }
-
-    function extendRequestSave(){
-        var orignFn = CFM.editor.Page.requestSave;
+    function extendRequestSave() {
+        var origFn = CFM.editor.Page.requestSave;
 
         CFM.editor.Page.requestSave = requestSave;
 
         function requestSave(callback, options) {
-            orignFn.call(this, callback, options);
+            origFn.call(this, callback, options);
 
-            if(!compositeMutifieldsExist()){
+            var mfData = getMultifieldData();
+
+            if (!mfData) {
                 return;
             }
 
-            var mfsData = getMultifieldData();
-
-            if(_.isEmpty(mfsData)){
-                return;
-            }
-
-            var url = CFM.EditSession.fragment.urlBase + ".cfm.content.json",
+            var url = CFM.EditSession.fragment.urlBase + '.cfm.content.json',
                 variation = getVariation(),
                 createNewVersion = (options && !!options.newVersion) || false;
 
             var data = {
-                ":type": "multiple",
-                ":newVersion": createNewVersion,
-                "_charset_": "utf-8"
+                ':type': 'multiple',
+                ':newVersion': createNewVersion,
+                '_charset_': 'utf-8'
             };
 
-            if(variation !== MASTER){
-                data[":variation"] = variation;
+            if (variation !== DEFAULT_VARIATION) {
+                data[':variation'] = variation;
             }
 
             var request = {
                 url: url,
-                method: "post",
-                dataType: "json",
-                data: _.merge(data, mfsData),
+                method: 'post',
+                dataType: 'json',
+                data: _.merge(data, mfData),
                 cache: false
             };
+
             CFM.RequestManager.schedule({
                 request: request,
                 type: CFM.RequestManager.REQ_BLOCKING,
@@ -143,59 +65,141 @@
         }
     }
 
-    function getMultifieldData(){
-        var $composites = $(COMPOSITE_MF_SEL), value,
-            mfData = {}, values, $fields;
+    function getMultifieldsContent() {
+        $.ajax(`${CFM.EditSession.fragment.urlBase}/jcr:content/data.2.json`)
+        .done(loadContentIntoMultiFields);
+    }
 
-        _.each($composites, function(mField){
+    function getMultifieldData() {
+        let value,
+            values,
+            data = {};
+
+        config.multiComposites.forEach(function (el) {
             values = [];
 
-            _.each(mField.items.getAll(), function(item) {
-                $fields = $(item.content).find("[name]");
+            let fields,
+                items = el.items.getAll();
+
+            items.forEach(function (item) {
 
                 value = {};
 
-                _.each($fields, function(field){
-                    if(canbeSkipped(field)){
+                fields = item.content.querySelectorAll('[name]');
+                fields.forEach(function (field) {
+                    if (canSkip(field)) {
                         return;
                     }
 
-                    value[getNameDotSlashRemoved(field.getAttribute("name"))] =  getFieldValue(field);
+                    value[getNameDotSlashRemoved(field.getAttribute('name'))] = getFieldValue(field);
                 });
 
                 values.push(JSON.stringify(value));
             });
 
-            mfData[ getNameDotSlashRemoved(($(mField)).attr(MF_NAME_ATTR))] = values;
+            data[getNameDotSlashRemoved((el.getAttribute(MF_NAME_ATTR)))] = values;
         });
 
-        return mfData;
+        return data;
+    }
+
+    function loadContentIntoMultiFields(data) {
+        var mfValArr, mfAdd,
+            vData = data[getVariation()], lastItem;
+
+        if (!vData) {
+            return;
+        }
+
+        config.multiComposites.forEach(function (el) {
+            mfValArr = vData[getNameDotSlashRemoved((el.getAttribute(MF_NAME_ATTR)))];
+
+            if (!mfValArr) {
+                return;
+            }
+
+            mfAdd = el.querySelector('[coral-multifield-add]');
+
+            mfValArr.forEach(function (item) {
+                mfAdd.click();
+
+                $lastItem = $(el).find('coral-multifield-item').last();
+
+                $lastItem.attr(COMPOSITE_ITEM_VALUE, item);
+
+                Coral.commons.ready($lastItem[0], function (component) {
+                    fillMultifieldItems(component);
+                });
+            });
+        });
+    }
+
+    function fillMultifieldItems(mfItem) {
+        if (mfItem == null) {
+            return;
+        }
+
+        var mfMap = mfItem.getAttribute(COMPOSITE_ITEM_VALUE);
+
+        if (!mfMap) {
+            return;
+        }
+
+        mfMap = JSON.parse(mfMap);
+        console.log(mfMap);
+
+        _.each(mfMap, function(fValue, fKey){
+            let field = mfItem.querySelector("[name$='" + fKey + "']");
+
+            setFieldValue(field, fValue);
+        });
+    }
+
+    function canSkip(field) {
+        console.log(field.type);
+        switch (field.type) {
+            case 'checkbox':
+            case 'hidden':
+                return true;
+                break;
+            default:
+                return false;
+        }
     }
 
     function getFieldValue(field){
         var value;
 
-        if(field.tagName == "CORAL-CHECKBOX"){
-            value = field.checked ? field.getAttribute("value") : "";
-        }else{
+        if (field.tagName == 'CORAL-CHECKBOX') {
+            value = field.checked ? field.getAttribute('value') : '';
+        } else {
             value = field.value;
         }
 
         return value;
     }
 
-    function canbeSkipped(field){
-        return (($(field).attr("type") == "hidden") || (field.type == "checkbox"));
+    function setFieldValue(field, value) {
+        if (field.tagName == 'CORAL-CHECKBOX') {
+            field.checked = (field.getAttribute('value') == value);
+        } else {
+            field.value = value;
+        }
     }
 
-    function getNameDotSlashRemoved(name){
-        if(_.isEmpty(name)){
-            return name;
+    function getNameDotSlashRemoved(name) {
+        if (!name) {
+            return;
         }
 
-        var parts = name.split("/");
+        let parts = name.split('/');
         return parts[parts.length-1];
     }
 
+    function getVariation() {
+        let variation = config.form.dataset.variation;
+        variation = variation || DEFAULT_VARIATION;
+        return variation;
+    }
 
 }(jQuery));
