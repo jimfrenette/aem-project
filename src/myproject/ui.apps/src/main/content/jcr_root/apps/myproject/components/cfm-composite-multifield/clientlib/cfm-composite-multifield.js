@@ -146,13 +146,12 @@
         }
 
         mfMap = JSON.parse(mfMap);
-        console.log(mfMap);
 
-        _.each(mfMap, function(fValue, fKey){
-            let field = mfItem.querySelector("[name$='" + fKey + "']");
+        for (const key in mfMap) {
+            let field = mfItem.querySelector(`[name$='${key}']`);
 
-            setFieldValue(field, fValue);
-        });
+            setFieldValue(field, mfMap[key]);
+        }
     }
 
     function canSkip(field) {
