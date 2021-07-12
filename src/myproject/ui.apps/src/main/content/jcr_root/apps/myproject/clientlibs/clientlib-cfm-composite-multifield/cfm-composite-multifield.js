@@ -25,6 +25,26 @@
 
         CFM.editor.Page.requestSave = requestSave;
 
+        function extend() {
+            var extended = {},
+                i = 0;
+
+            // merge the object into the extended object
+            function merge(obj) {
+                for (var prop in obj) {
+                    if (obj.hasOwnProperty(prop)) {
+                        extended[prop] = obj[prop];
+                    }
+                }
+            };
+
+            for (; i < arguments.length; i++) {
+                merge(arguments[i]);
+            }
+
+            return extended;
+        }
+
         function requestSave(callback, options) {
             origFn.call(this, callback, options);
 
@@ -52,7 +72,7 @@
                 url: url,
                 method: 'post',
                 dataType: 'json',
-                data: _.merge(data, mfData),
+                data: extend(data, mfData),
                 cache: false
             };
 
@@ -155,7 +175,6 @@
     }
 
     function canSkip(field) {
-        console.log(field.type);
         switch (field.type) {
             case 'checkbox':
             case 'hidden':
