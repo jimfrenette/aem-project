@@ -1,5 +1,6 @@
 (function ($) {
     var CFM = window.Dam.CFM,
+        CF_BASEPATH = '/content/dam/myproject/',
         COMPOSITE_ITEM_VALUE = 'data-composite-item-value',
         DEFAULT_VARIATION = 'master',
         MF_NAME_ATTR = 'data-granite-coral-multifield-name';
@@ -11,8 +12,10 @@
 
     /**
      * EXIT when composite mulltifields do not exist
+     *      or specified CF_BASEPATH doesn't match.
      **/
-    if (config.multiComposites.length === 0) {
+     if (config.multiComposites.length === 0 || (CF_BASEPATH.length > 0
+        && config.form.dataset.fragment.indexOf(CF_BASEPATH) === -1)) {
         return;
     }
 
