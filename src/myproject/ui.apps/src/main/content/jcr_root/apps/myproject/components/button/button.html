@@ -1,0 +1,26 @@
+<sly data-sly-set.linkTarget="${properties.link && properties.linkTarget == 'true' ? '_blank' : ''}"/>
+
+<button data-sly-use.button="com.adobe.cq.wcm.core.components.models.Button"
+        data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
+        data-sly-use.iconTemplate="/apps/core/wcm/components/button/v1/button/icon.html"
+        data-sly-element="${button.link ? 'a' : 'button'}"
+        type="${button.link ? '' : 'button'}"
+        id="${component.id}"
+        class="cmp-button"
+        href="${button.link}"
+        rel="${linkTarget == '_blank' ? 'noopener' : ''}"
+        target="${linkTarget}"
+        aria-label="${button.accessibilityLabel}"
+        data-cmp-clickable="${button.data ? true : false}"
+        data-cmp-data-layer="${button.data.json}">
+    <sly data-sly-call="${iconTemplate.icon @ icon=button.icon}"></sly>
+
+    <span data-sly-test="${properties.fileReference}"
+          class="cmp-button-img">
+          <img src="${properties.fileReference}"
+               alt="${properties.alt}"/>
+    </span>
+
+    <span data-sly-test="${button.text}" class="cmp-button__text">${button.text}</span>
+
+</button>
