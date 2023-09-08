@@ -14,13 +14,11 @@ PassEnv DISP_ID
 		Header always add X-Vhost "publish"
 		Header merge X-Frame-Options SAMEORIGIN "expr=%{resp:X-Frame-Options}!='SAMEORIGIN'"
 		Header merge X-Content-Type-Options nosniff "expr=%{resp:X-Content-Type-Options}!='nosniff'"
-		# Make sure proxies don't deliver the wrong content
-		Header append Vary User-Agent env=!dont-vary
 	</IfModule>
-	<Directory />
-		# Update /etc/sysconfig/httpd with setting the PUBLISH_WHITELIST_ENABLED from 0 or 1 to enable or disable ip restriction rules
-		<If "${PUBLISH_WHITELIST_ENABLED} == 1">
-			Include conf.d/whitelists/*_whitelist.rules
+	<Directory "${PUBLISH_DOCROOT}">
+		# Update /etc/sysconfig/httpd with setting the PUBLISH_ALLOWLIST_ENABLED from 0 or 1 to enable or disable ip restriction rules
+		<If "${PUBLISH_ALLOWLIST_ENABLED} == 1">
+			Include conf.d/allowlists/*_allowlist.rules
 		</If>
 		<IfModule disp_apache2.c>
 			# Some items cache with the wrong mime type
@@ -35,15 +33,12 @@ PassEnv DISP_ID
 		</IfModule>
 		Options FollowSymLinks
 		AllowOverride None
+		Require all granted
 		# Insert filter
 		SetOutputFilter DEFLATE
 		# Don't compress images
 		SetEnvIfNoCase Request_URI \
 		\.(?:gif|jpe?g|png)$ no-gzip dont-vary
-	</Directory>
-	<Directory "${PUBLISH_DOCROOT}">
-		AllowOverride None
-		Require all granted
 	</Directory>
 	<IfModule disp_apache2.c>
 		# Enabled to allow rewrites to take affect and not be ignored by the dispatcher module
@@ -61,5 +56,9 @@ PassEnv DISP_ID
 		<If "${PUBLISH_FORCE_SSL} == 1">
 			Include conf.d/rewrites/xforwarded_forcessl_rewrite.rules
 		</If>
+	</IfModule>
+	<IfModule mod_proxy.c>
+		SSLProxyEngine on
+		Include /etc/httpd/conf.d/proxy/*.proxy
 	</IfModule>
 </VirtualHost>

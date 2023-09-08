@@ -12,13 +12,11 @@
 		Header merge X-Frame-Options SAMEORIGIN "expr=%{resp:X-Frame-Options}!='SAMEORIGIN'"
 		Header always set Strict-Transport-Security "max-age=63072000; includeSubdomains;"
 		Header merge X-Content-Type-Options nosniff "expr=%{resp:X-Content-Type-Options}!='nosniff'"
-		# Make sure proxies don't deliver the wrong content
-		Header append Vary User-Agent env=!dont-vary
 	</IfModule>
-	<Directory />
-		# Update /etc/sysconfig/httpd with setting the LIVECYCLE_WHITELIST_ENABLED from 0 or 1 to enable or disable ip restriction rules
-		<If "${LIVECYCLE_WHITELIST_ENABLED} == 1">
-			Include conf.d/whitelists/*_whitelist.rules
+	<Directory "${LIVECYCLE_DOCROOT}">
+		# Update /etc/sysconfig/httpd with setting the LIVECYCLE_ALLOWLIST_ENABLED from 0 or 1 to enable or disable ip restriction rules
+		<If "${LIVECYCLE_ALLOWLIST_ENABLED} == 1">
+			Include conf.d/allowlists/*_allowlist.rules
 		</If>
 		<IfModule disp_apache2.c>
 			# Some items cache with the wrong mime type
@@ -33,15 +31,12 @@
 		</IfModule>
 		Options FollowSymLinks
 		AllowOverride None
+		Require all granted
 		# Insert filter
 		SetOutputFilter DEFLATE
 		# Don't compress images
 		SetEnvIfNoCase Request_URI \
 		\.(?:gif|jpe?g|png)$ no-gzip dont-vary
-	</Directory>
-	<Directory "${LIVECYCLE_DOCROOT}">
-		AllowOverride None
-		Require all granted
 	</Directory>
 	<IfModule disp_apache2.c>
 		# Enabled to allow rewrites to take affect and not be ignored by the dispatcher module

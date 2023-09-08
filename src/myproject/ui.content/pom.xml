@@ -47,15 +47,14 @@
                 <groupId>org.apache.jackrabbit</groupId>
                 <artifactId>filevault-package-maven-plugin</artifactId>
                 <configuration>
+                    <properties>
+                        <cloudManagerTarget>none</cloudManagerTarget>
+                    </properties>
                     <group>com.myproject</group>
                     <name>myproject.ui.content</name>
                     <packageType>content</packageType>
                     <accessControlHandling>merge</accessControlHandling>
                     <validatorsSettings>
-                        <!-- disable nodetype validation as workaround until JCRVLT-463 got fixed -->
-                        <jackrabbit-nodetypes>
-                            <isDisabled>true</isDisabled>
-                        </jackrabbit-nodetypes>
                         <jackrabbit-filter>
                             <options>
                                 <validRoots>/conf,/content,/content/experience-fragments,/content/dam</validRoots>

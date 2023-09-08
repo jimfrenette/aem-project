@@ -8,7 +8,12 @@
         sling:resourceType="myproject/components/page">
         <root
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="myproject/components/container">
+            sling:resourceType="myproject/components/container"
+            layout="responsiveGrid">
+            <experiencefragment-header
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="myproject/components/experiencefragment"
+                fragmentVariationPath="/content/experience-fragments/myproject/language-masters/en/site/header/master"/>
             <container
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="myproject/components/container"

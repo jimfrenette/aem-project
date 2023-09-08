@@ -2,8 +2,10 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     cq:adobeTargetExportFormat="html"
     cq:allowedTemplates="[/conf/myproject/settings/wcm/templates/(?!page-).*]"
+    cq:conf="/conf/myproject"
     jcr:primaryType="sling:OrderedFolder"
-    jcr:title="My Project Fragments">
+    jcr:title="My Project Fragments"
+    sling:configRef="/conf/myproject">
     <language-masters/>
     <us/>
 </jcr:root>

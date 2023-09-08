@@ -6,6 +6,6 @@
         cq:template="/conf/myproject/settings/wcm/templates/page-content"
         jcr:primaryType="cq:PageContent"
         jcr:title="us"
-        sling:resourceType="foundation/components/redirect"/>
+        sling:resourceType="myproject/components/page"/>
     <en/>
 </jcr:root>
