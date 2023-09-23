@@ -1,5 +1,6 @@
 {
     "workbench.colorCustomizations": {
+<<<<<<< HEAD
         "activityBar.activeBackground": "#fce6e5",
         "activityBar.activeBorder": "#14ab1a",
         "activityBar.background": "#fce6e5",
@@ -21,4 +22,26 @@
     },
     "peacock.color": "#00a4e4",
     "peacock.remoteColor": "#f7b9b7"
+=======
+        "activityBar.activeBackground": "#00dfe7",
+        "activityBar.background": "#00dfe7",
+        "activityBar.foreground": "#15202b",
+        "activityBar.inactiveForeground": "#15202b99",
+        "activityBarBadge.background": "#df00d7",
+        "activityBarBadge.foreground": "#e7e7e7",
+        "commandCenter.border": "#e7e7e799",
+        "sash.hoverBorder": "#00dfe7",
+        "statusBar.background": "#00aeb4",
+        "statusBar.foreground": "#e7e7e7",
+        "statusBarItem.hoverBackground": "#00dfe7",
+        "statusBarItem.remoteBackground": "#00aeb4",
+        "statusBarItem.remoteForeground": "#e7e7e7",
+        "titleBar.activeBackground": "#00aeb4",
+        "titleBar.activeForeground": "#e7e7e7",
+        "titleBar.inactiveBackground": "#00aeb499",
+        "titleBar.inactiveForeground": "#e7e7e799"
+    },
+    "peacock.color": "#00a4e4",
+    "peacock.remoteColor": "#00aeb4"
+>>>>>>> 693f093... MultiField sling model completed
 }
