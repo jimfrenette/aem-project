@@ -1,3 +1,13 @@
+/*
+ *  Example usage
+ *
+ *  <div data-sly-use.foo="${'com.myproject.core.models.MultiField' @ multifieldNodeName='foo'}"
+ *       data-sly-test="${foo}" class="foo-container"
+ *       data-sly-list.foo="${foo.itemsList}">
+ *       ${foo.text @ context='html'}
+ *  </div>
+ */
+
 package com.myproject.core.models;
 
 import org.apache.sling.api.SlingHttpServletRequest;
