@@ -1,13 +1,11 @@
 
-<sly data-sly-set.bgColor="--bgColor:${properties.bgColor ? properties.bgColor : 'transparent' @ context='styleToken'};"/>
-<sly data-sly-set.color="--color:${properties.color ? properties.color : 'inherit' @ context='styleToken'};"/>
-
-
 <div class="cmp-hellomultifield" data-cmp-is="hellomultifield">
     <h2 class="cmp-hellomultifield__title">Hello MultiField Component</h2>
     <div data-sly-use.tile="${'com.myproject.core.models.MultiField' @ multifieldNodeName='tile'}"
          data-sly-test="${tile}" class="tile-container"
          data-sly-list.tile="${tile.itemsList}">
-         <div>${tile.text @ context='html'}</div>
+         <sly data-sly-set.bgColor="--bgColor:${tile.bgColor ? tile.bgColor : '#fff' @ context='styleToken'};"/>
+         <sly data-sly-set.color="--color:${tile.color ? tile.color : 'inherit' @ context='styleToken'};"/>
+         <div style="${bgColor @ context='styleString'}${color @ context='styleString'}">${tile.text @ context='html'}</div>
     </div>
 </div>

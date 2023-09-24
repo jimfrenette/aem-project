@@ -18,7 +18,8 @@
             margin: 0.75em;
             padding: 1rem;
             position: relative;
-            background-color: #fff;
+            background-color: var(--bgColor);
+            color: var(--color);
         }
     }
 }
