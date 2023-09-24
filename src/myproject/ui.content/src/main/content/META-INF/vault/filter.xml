@@ -2,6 +2,10 @@
 <workspaceFilter version="1.0">
     <filter root="/conf/myproject" mode="merge"/>
     <filter root="/content/myproject" mode="merge"/>
-    <filter root="/content/dam/myproject" mode="merge"/>
+    <filter root="/content/dam/myproject" mode="merge">
+        <exclude pattern="/content/dam/myproject(/.*)?"/>
+        <include pattern="/content/dam/myproject/jcr:content(/.*)?"/>
+    </filter>
+    <filter root="/content/dam/myproject/asset.jpg" mode="merge"/>
     <filter root="/content/experience-fragments/myproject" mode="merge"/>
 </workspaceFilter>

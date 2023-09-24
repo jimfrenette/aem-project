@@ -32,8 +32,9 @@ services:
       - SHARED_FOLDER=/tmp/shared
       - HEADLESS_BROWSER
     volumes:
-      - ./reports:/tmp/reports
+      - ./target/reports:/tmp/reports
       - 'shared:/tmp/shared'
+      - 'shared:/usr/src/app/assets'
     image: 'com.myproject-myproject.ui.tests/ui.tests:latest'
   selenium-firefox:
     image: 'selenium/standalone-firefox-debug'

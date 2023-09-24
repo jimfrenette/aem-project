@@ -2,11 +2,11 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:redirectTarget="/content/myproject/${languageCountry.substring(3)}/${languageCountry.substring(0,2)}"
+        cq:redirectTarget="/content/myproject/us/en"
         cq:template="/conf/myproject/settings/wcm/templates/page-content"
         jcr:primaryType="cq:PageContent"
         jcr:title="Language Masters"
-        sling:resourceType="foundation/components/redirect"
+        sling:resourceType="myproject/components/page"
         hideInNav="{Boolean}true"/>
     <en/>
 </jcr:root>

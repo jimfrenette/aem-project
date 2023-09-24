@@ -1,0 +1,26 @@
+// Best practice:
+// For a good separation of concerns, don't rely on the DOM element names,
+// but on dedicated CSS selectors to identify all elements
+.cmp-hellomultifield {
+    .tile-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 0.5em 0 0.75em;
+
+        > div {
+            display: block;
+            border: 1px solid #dcdcdc;
+            border-radius: 3px;
+            box-shadow: 0 2px 4px #e6e6e6;
+            flex-basis: 18.5em;
+            flex-grow: 1;
+            margin: 0.75em;
+            padding: 1rem;
+            position: relative;
+            background-color: var(--bgColor);
+            color: var(--color);
+        }
+    }
+}
+.cmp-hellomultifield__title {}

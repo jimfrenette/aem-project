@@ -2,6 +2,31 @@
 
 ### Resources
 
+#### Archetype 43
+
+Step 1, backup previous archetype project. For example,
+```
+cd src
+
+mv myproject myproject24
+```
+
+Step 2, create new archetype-project. For example
+```
+mvn -B org.apache.maven.plugins:maven-archetype-plugin:3.2.1:generate \
+ -D archetypeGroupId=com.adobe.aem \
+ -D archetypeArtifactId=aem-project-archetype \
+ -D archetypeVersion=43 \
+ -D aemVersion=6.5.0 \
+ -D appTitle="My Project" \
+ -D appId="myproject" \
+ -D groupId="com.myproject" \
+ -D language=en \
+ -D country=us \
+ -D singleCountry=n \
+ -D frontendModule=general
+```
+
 #### Archetype 24
 
 * [AEM Maven Project Button Component](https://jimfrenette.com/aem/components/aem-button-component/)
