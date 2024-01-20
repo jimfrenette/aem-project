@@ -111,3 +111,41 @@ validate `myproject` running on dispatcher:
 http://myproject.mycompany.local/content/myproject/us/en.html
 
 For more info, https://blogs.perficient.com/2021/01/05/setting-up-a-local-aem-dispatcher-with-docker/
+
+### WSL2 Environment
+
+Running AEM on the Windows file system while building and deploying code from WSL2 Linux.
+
+* Add this [resolv.sh](https://gist.github.com/jimfrenette/21c7f19bc12c94c60628bebbf943a974) script to your WSL2 Linux.
+
+* Run `resolv` anywhere given `$HOME/bin` is in your environment PATH. Place `resolv.sh` in the `/bin` directory and make it executable. e.g., `chmod +x resolv.sh`. Rename it resolv, e.g., `mv resolv.sh resolv`.
+
+For example
+```bash
+> $ resolv                                                                                            ⬡ 14.18.1 [±archetype-43 ✓]
+Enter hostname to add or update, e.g., win.localhost
+HOSTNAME: win.localhost
+192.168.96.1
+win.localhost was not found in your /etc/hosts
+Adding win.localhost to your /etc/hosts
+[sudo] password for <user>:
+win.localhost was added succesfully:
+192.168.96.1 win.localhost
+```
+
+* Run AEM using Powershell
+```
+cd author\crx-quickstart\bin
+> ./start.bat
+```
+
+* Maven build with `win.localhost` in our Linux `etc/hosts` file added / updated by the resolv script.
+```bash
+mvn -PautoInstallSinglePackage -Daem.host=win.localhost clean install
+```
+
+* [.repo](https://jimfrenette.com/2019/12/aem-developer-file-transfers/#aem-repo-tool) example.
+```
+server=http://win.localhost:4502
+credentials=admin:admin
+```
