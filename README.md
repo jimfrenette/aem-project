@@ -1,8 +1,23 @@
 # aem-project
 
+## Branches
+
+As of 2024, develop branch will be used for new work going forward. Tags create from develop are being used for blog post source code links. For example, [hellomultifield](https://github.com/jimfrenette/aem-project/releases/tag/hellomultifield)
+
+These old branches are still linked to [jimfrenette.com](https://jimfrenette.com/) AEM posts.
+
+* [coral-ui-3](https://github.com/jimfrenette/aem-project/tree/coral-ui-3)
+* [feature/foldingpanel](https://github.com/jimfrenette/aem-project/tree/feature/foldingpanel "https://jimfrenette.com/aem/components/aem-foldingpanel-component/")
+* [archetype-23-react](https://github.com/jimfrenette/aem-project/tree/archetype-23-react "https://jimfrenette.com/2020/04/aem-maven-project-react-part-1/")
+* [feature/message](https://github.com/jimfrenette/aem-project/tree/feature/message "https://jimfrenette.com/aem/components/aem-message-component/")
+* [stubdata](https://github.com/jimfrenette/aem-project/tree/stubdata "https://jimfrenette.com/aem/javascript-use-api-stub-data/")
+
+
 ### Resources
 
 #### Archetype 43
+
+* [AEM Maven Project Multifield Component](https://jimfrenette.com/aem/components/multifield-component/)
 
 Step 1, backup previous archetype project. For example,
 ```
