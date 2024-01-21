@@ -1,11 +1,11 @@
 
 <div class="cmp-hellomultifield" data-cmp-is="hellomultifield">
     <h2 class="cmp-hellomultifield__title">Hello MultiField Component</h2>
-    <div data-sly-use.tile="${'com.myproject.core.models.MultiField' @ multifieldNodeName='tile'}"
-         data-sly-test="${tile}" class="tile-container"
-         data-sly-list.tile="${tile.itemsList}">
-         <sly data-sly-set.bgColor="--bgColor:${tile.bgColor ? tile.bgColor : '#fff' @ context='styleToken'};"/>
-         <sly data-sly-set.color="--color:${tile.color ? tile.color : 'inherit' @ context='styleToken'};"/>
-         <div style="${bgColor @ context='styleString'}${color @ context='styleString'}">${tile.text @ context='html'}</div>
+    <div data-sly-use.panel="${'com.myproject.core.models.MultiField' @ multifieldNodeName='panel'}"
+         data-sly-test="${panel}" class="panel-container"
+         data-sly-list.panel="${panel.itemsList}">
+         <sly data-sly-set.bgColor="--bgColor:${panel.bgColor ? panel.bgColor : '#fff' @ context='styleToken'};"/>
+         <sly data-sly-set.color="--color:${panel.color ? panel.color : 'inherit' @ context='styleToken'};"/>
+         <div style="${bgColor @ context='styleString'}${color @ context='styleString'}">${panel.text @ context='html'}</div>
     </div>
 </div>

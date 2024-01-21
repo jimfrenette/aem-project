@@ -18,7 +18,7 @@
                         <field
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="granite/ui/components/coral/foundation/container"
-                            name="./tile">
+                            name="./panel">
                             <items jcr:primaryType="nt:unstructured">
                                 <text
                                     jcr:primaryType="nt:unstructured"
@@ -29,13 +29,13 @@
                                 <bgColor
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="granite/ui/components/coral/foundation/form/colorfield"
-                                    fieldDescription="Enter a hex value or select a color for the Tile background."
+                                    fieldDescription="Enter a hex value or select a color for the Panel background."
                                     fieldLabel="Background Color"
                                     name="./bgColor"/>
                                 <color
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="granite/ui/components/coral/foundation/form/colorfield"
-                                    fieldDescription="Enter a hex value or select a color for the Tile foreground color. For example, the text color."
+                                    fieldDescription="Enter a hex value or select a color for the Panel foreground color. For example, the text color."
                                     fieldLabel="Color"
                                     name="./color"/>
                             </items>

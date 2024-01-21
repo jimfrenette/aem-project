@@ -2,7 +2,7 @@
 // For a good separation of concerns, don't rely on the DOM element names,
 // but on dedicated CSS selectors to identify all elements
 .cmp-hellomultifield {
-    .tile-container {
+    .panel-container {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
