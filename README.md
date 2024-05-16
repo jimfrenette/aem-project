@@ -4,6 +4,8 @@
 
 As of 2024, develop branch will be used for new work going forward. Tags create from develop are being used for blog post source code links. For example, [hellomultifield](https://github.com/jimfrenette/aem-project/releases/tag/hellomultifield)
 
+After develop branch code has been completed and validated, it will get merged into master.
+
 These old branches are still linked to [jimfrenette.com](https://jimfrenette.com/) AEM posts.
 
 * [coral-ui-3](https://github.com/jimfrenette/aem-project/tree/coral-ui-3)
