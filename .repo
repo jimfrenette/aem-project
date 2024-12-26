@@ -4,4 +4,4 @@
 # transfer files to a AEM instance running on the Windows file system
 # using a Windows Localhost Resolver
 
-server=http://win.localhost:4502
+server=http://win.localhost2:4502
