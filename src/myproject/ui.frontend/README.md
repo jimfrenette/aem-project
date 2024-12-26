@@ -1,5 +1,17 @@
 # Frontend Build
 
+```bash
+cd ui.frontend
+
+# substitute `dev` as needed
+npm prod
+
+# upload to jcr
+repo put -f ../ui.apps/src/main/content/jcr_root/apps/myproject/clientlibs/clientlib-site/js/site.js
+
+repo put -f ../ui.apps/src/main/content/jcr_root/apps/myproject/clientlibs/clientlib-site/css/site.css
+```
+
 ## Features
 
 * Full TypeScript, ES6 and ES5 support (with applicable Webpack wrappers).
