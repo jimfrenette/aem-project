@@ -2,11 +2,11 @@
 
 ## Branches
 
-As of 2024, develop branch will be used for new work going forward. Tags create from develop are being used for blog post source code links. For example, [hellomultifield](https://github.com/jimfrenette/aem-project/releases/tag/hellomultifield)
+As of 2024, develop branch will be used for new work going forward. Tags created from develop are being used for blog post source code links. For example, [hellomultifield](https://github.com/jimfrenette/aem-project/releases/tag/hellomultifield)
 
-After develop branch code has been completed and validated, it will get merged into master.
+When a component example such as [hellomultifield](https://github.com/jimfrenette/aem-project/releases/tag/hellomultifield) contains a new sling model that is a likely candidate for use in other components, it will also be in the master branch.
 
-These old branches are still linked to [jimfrenette.com](https://jimfrenette.com/) AEM posts.
+Aside from the above tagged commits in develop, these older branches still exists since they are linked to [jimfrenette.com](https://jimfrenette.com/) AEM posts.
 
 * [coral-ui-3](https://github.com/jimfrenette/aem-project/tree/coral-ui-3)
 * [feature/foldingpanel](https://github.com/jimfrenette/aem-project/tree/feature/foldingpanel "https://jimfrenette.com/aem/components/aem-foldingpanel-component/")
