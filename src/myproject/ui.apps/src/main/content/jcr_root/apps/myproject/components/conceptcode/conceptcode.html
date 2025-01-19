@@ -1,0 +1,6 @@
+<sly data-sly-set.emptyText="${properties.code ? 'Configured' : ''}"/>
+
+${properties.code @ context = 'unsafe'}
+
+<sly data-sly-use.templates="/apps/core/wcm/components/commons/v1/templates.html"
+     data-sly-call="${templates.placeholder @ isEmpty = true, emptyTextAppend = emptyText}" />
